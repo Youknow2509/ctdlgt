@@ -21,7 +21,6 @@ public:
         return (h >= 0 && h <= 23 && m >= 0 && m <= 59 && s >= 0 && s <= 59);
     }
     void updateTime(int a, int b, int c){
-        if (check(a, b, c)){
             h += a;
             m += b;
             s +=c;
@@ -33,9 +32,6 @@ public:
             m = m%60;
 
             h = h%24;
-        } else {
-            cout << "Thoi gian can them loi dinh dang!!!" << endl;
-        }
     }
     void show(){
         cout << "Time: " << setw (2) << setfill('0') << h << " : " 
