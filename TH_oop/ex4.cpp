@@ -14,6 +14,27 @@ class Date{
             return 31;
         }
     }
+    long long so_ngay(int d, int m, int y){
+        long long res = 0;
+        for (int i = 1990; i <= y; i++){
+            res += check_nam_nhuan(i) ? 366 : 365;
+        }
+        for (int i = 1; i <= m; i++){
+            res += so_ngay_trong_thang(i, y);
+        }
+        res += d;
+        return res;
+    }
+    void chuanhoangaythang() {
+        while (day > so_ngay_trong_thang(month, year)) {
+            day -= so_ngay_trong_thang(month, year);
+            month++;
+            if (month > 12) {
+                month = 1;
+                year++;
+            }
+        }
+    }
 public:
     Date(){
         day = 1;
@@ -28,6 +49,9 @@ public:
             Date();
         }
     }
+    int get_day(){return day;}
+    int get_month(){return month;}
+    int get_year(){return year;}
     bool check_nam_nhuan(int y){
         return ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0));
     }
@@ -35,18 +59,21 @@ public:
         return d > 0 && m > 0 && m <= 12 && d < so_ngay_trong_thang(m, y);
     }
     void updateDate(int d, int m, int y){
-        if (check(d, m, y)){ // Ngày, tháng, năm nhập vào phải có trong thời gian thực
-//
+        if (check(day + d, month + m, year + y)) {
+            day += d;
+            month += m;
+            year += y;
+            chuanhoangaythang();
         } else {
-            cout << "Error !!!" << endl;
+            cout << "Ngày tháng không hợp lệ sau khi cập nhật." << endl;
         }
     }
 
     int so_ngay_cach_nhau(Date A){
-//
+        return abs(so_ngay(day, month, year) - so_ngay(A.get_day(), A.get_month(), A.get_year()));
     }
     int so_ngay_cach_nhau(int d, int m, int y){
-//
+        return abs(so_ngay(day, month, year) - so_ngay(d, m,  y));
     }
     void show(){
         cout << "Day: " << setw (2) << setfill('0') << day << ", month: " 
