@@ -51,11 +51,13 @@ int main(){
     AddressBook addressBook;
 
     while (true) {
+        cout << "--------------------------------\n";
         cout << "1. Thêm liên hệ mới" << endl;
         cout << "2. Xóa liên hệ" << endl;
         cout << "3. Tìm kiếm liên hệ" << endl;
         cout << "4. Hiển thị danh sách liên hệ" << endl;
         cout << "5. Thoát" << endl;
+        cout << "--------------------------------\n";
 
         int choice;
         cout << "Chọn tùy chọn: ";
