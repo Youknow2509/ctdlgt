@@ -34,6 +34,12 @@
 # 3. Tìm kiếm
 ## 3.1. Tìm kiếm tuần tự - Sequence search / Linear search
   ![Minh hoạ](store/search/giai-thuat-tim-kiem-tuyen-tinh-linear-search-1.gif)
+
+  [CODE](./search/LinearSearch.cpp)
 ## 3.2. Tìm kiếm nhị phân - Binary search
   ![Alt text](store/search/binarySearch.gif)
+
+  [CODE](./search/BinarySearch.cpp)
 ## 3.3. Bảng băm - Hash table
+
+  [CODE](./search/HashTable.cpp)
